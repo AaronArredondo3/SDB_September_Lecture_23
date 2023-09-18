@@ -1,0 +1,124 @@
+/*This is a comment within CSS*/
+/* 'ctrl + /' will also make a comment */
+
+/* 
+These Comments 
+can Span
+Multiple Lines
+ */
+
+/*
+List of CSS Selectors
+    -Element Selector: is going to select all instances
+    of a given tag from our HTML page
+    -body
+    -p
+
+/* I want to change the color of my p tags */
+/* I have to start by telling my CSS file what I want to change*/
+p,h1 {/*Select All <p> tags */
+    /*By using a comma I can have this style Rule Effect multiple different tags at the same time*/
+color:blue; /*change the text color to "orangered"*/
+background-color: yellow
+}
+
+/* body selector- what we write before the {} is going to be our "selector". A "selector" is the term for the element or elements on my HTML page which are being edited by this style rule*/
+body {
+    background-color: darkviolet;
+    /* 
+    In CSS we have 3 major ways to refer to a color:display:
+    -color keywords:display:
+        -green, lightgray, orangered, etc....
+        -RGB value:
+            -rgb(0-255, 0-255, 0-255)
+            Each of these numbers represents how strong either the Red, Green or Blue is in our color
+        -Hex Color:
+        -#002255
+        -Each Pair of values represents one of our "rgb" values, so a hex color is made of 3 pairs of characters. These characters count from 0-9, then a-f
+        -0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f
+    */
+}
+
+/* I must use a period . to select my class name. This will select all elements with this class name */
+.header {
+text-align: center;
+}
+
+/* Change all h tags at the same time */
+/* Compound Selector: it is more than a single selector in one rule */
+h1,h2,h3,h4,h5,h6{
+    /* this will now change all of my h tags at the same time */
+text-decoration: underline;
+}
+
+/* change a SPECIFIC tag by selecting ID*/
+/* To select an ID, I must use a number sign # aka hashtag*/
+#unique{
+    text-decoration: underline overline;
+    background-color: black;
+    color: olivedrab;
+    border-radius: 25px;
+}
+/* We are only ever going to get back ONE item with a given ID. Unlike a tag name or class, we cannot use the same ID for multiple elements. If we use the same ID multiple times, the styling will still apply. This does not mean we should use it in place of a class. Our browser and JavaScript is only going to pay attention to the first item with a given ID when we start making our pages functional*/
+
+/* I can focus my selector to only work on .btn classes WITHIN a specific conatiner */
+nav .btn{
+    text-shadow: 2px 2px 2px white;
+}
+
+/* This selector will only effect the direct children of our nav (only elements which are immediately after the <nav> tag with no <div> or <span> in between*/
+nav>.btn {
+    /* This is going to change the text color using the class */
+    background-color: white;
+}
+
+/* This is going to change my text color using the tag (or element) name */
+/* a{
+    color: darkviolet !important;
+} */
+
+/* 
+!CSS Hierarchy
+    This is going to allow CSS to use distinct levels of "priority" to style our elements. The order of priority from weakest to strongest is:
+    
+    External Stylesheet:
+    -Element
+    -Class
+    -ID
+    -!Important
+
+    Internal Stylesheet:
+    -Element
+    -Class
+    -ID
+    
+    -Inline Styling
+    -!Important
+
+    "External Stylesheet" is a .css file which is not the html file we have our webpage in
+
+    "Internal Stylesheet" is CSS written within the .html file
+
+    "Inline Styling" is when I add a "style" property to an element in my .html file
+
+ */
+
+ /* Styling an Unvisited link */
+a:link{
+    color:#7b7bdc;
+}
+
+/* Styling a link i have visited */
+a:visited{
+    color: orangered;
+}
+
+/* Styling a link my mouse is hovering over */
+a:hover{
+    color: gold;
+}
+
+/* Styling a link while it is being clicked */
+a:active{
+    color: black;
+}

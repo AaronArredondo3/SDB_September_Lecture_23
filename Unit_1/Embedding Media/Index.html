@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedding Media</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        Purpose:
+            -Videos can be a useful tool to provide info.
+            Images can make your site more enjoyable.
+            -Maps can help potential customer route to your store.
+            -Provide more info and engagement.
+        Types:
+            -Media
+            -other HTML
+            -ads
+            -maps, graphs, etc.
+    -->
+
+    <!--! Image -->
+    <img src="https://images.unsplash.com/photo-1682687220336-bbd659a734e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=775&q=80" alt="Desert Hills" style="height: 200px; width: 300px;">
+
+    <!--
+        Common files:
+            -jpg/jpeg
+                -no transparency allowed
+                -raster (pixel) based
+                -supports transparency
+            -svg
+                -scalable vector graphic
+                -vector based
+                -scales indefinitely
+    -->
+    <br>
+    <!--! iFrame -->
+    <iframe 
+        src="https://www.december.com/html/spec/HTML5-Cheat-Sheet.pdf" 
+        title="HTML Cheatsheet"
+        frameborder="0"
+        height="500"
+        width="800"
+    >
+    </iframe>
+    <!--
+        - can take longer to load
+        -used to embed other documents
+        -utilize attributes to detail elements
+        -common to use for video for dedicated hosts (Youtube, Vimeo)
+    -->
+    <br>
+    <!--! Video -->
+    <video width="400" height="200" controls>
+        <source src="#file.mp4" type="video/mp4">
+        <source src="#file.ogg" type="video.mp4">
+        <source src="#file.mov" type="video/mp4">
+        Unsupported file type
+    </video>
+    <!--
+        -option for locally store videos
+        -controls
+            -provide a "play", "pause", "volume" option
+        -source
+            -provides possible file formats for the users browsers
+            -runs from top to bottom
+    -->
+    <br>
+    <!--! Audio -->
+    <audio autoplay="false" muted="true" controls>
+        <source src="#audio.mp3" type="audio/mpeg">
+        <source src="#audio.ogg" type="audio/mpeg">
+        <p>Error message here: Unsupported file</p>
+</audio>
+<!--
+    -autoplay
+        -starts audio when page loads
+        -accepts a boolean value (true/false) to either do this or not.
+    -muted
+        -depending on true/false, can be muted on load.
+    -loop
+        -repeats the audio after it is loaded.
+-->
+<br>
+<!--! Maps -->
+    <iframe
+        title="Lincoln Memorial"
+        src="https://www.openstreetmap.org/search?query=lincoln%memorial#map=19/38.88927/-77.05017"
+        width="400"
+        height="300"
+></iframe>
+</body>
+</html>
