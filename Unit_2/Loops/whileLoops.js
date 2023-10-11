@@ -16,7 +16,7 @@
 let n = 1;
 
 while ( n < 10 ) {
-    console.log(`n before addition, start of loop: ${n}`);  //string iterpolation
+    console.log(`n before addition, start of loop: ${n}`);  //string interpolation
     n++; // n = n + 1; n+1
     console.log(`n after addition, end of loop: ${n}`)
     console.log("----------------");
