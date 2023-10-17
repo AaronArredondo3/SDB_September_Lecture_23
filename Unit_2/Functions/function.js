@@ -2,6 +2,7 @@
 ! Functions
     - Block of code that performs a particular task.
     - simplified programs that run a task when invoked
+    - you use it when you don't want to keep making changes to multiple things, instead you change one and it makes the changes to all of them. 
 */
 
 /* 
