@@ -141,3 +141,5 @@ do {
 // Process complete message
 console.log("All accounts are active.")
 console.table(accounts); // used.table() method instead of .log()
+
+

@@ -36,43 +36,47 @@
             - show the title of episode 1 of the second season of the first show.
 */
 
-let Hulu = {
+let hulu = {
     id: 2,
     movies: {
-        "Alone": [
+        "Alone":[
             {
-                genre: "Thriller",
                 rating: "R",
+                genre: 'Thriller',
                 run_time: 138,
                 released: 2020
             }
         ],
-        
+    
         "The Tank":[
             { 
-                genre: "Thriller",
                 rating: "R",
+                genre: 'Thriller',
                 run_time: 120,
                 released: 2023
-        },
-        ]
+        }
+        ],
     },
     shows: {
-        "This Fool":[{
+            title: "This Fool",
             numOfSeasons: 2,
-            episodes: 10,
-            season: [
+            seasons: {
+                "season one": [
                 {
+                    episodes: 10,
                     episode_title: "A Storm is Coming",
                     aired: '2022-08-17'
-                },
-                {
-                    
                 }
-            ]
-
-
-        }]
+            ],
+                "season two": [
+                {
+                    episodes: 10,
+                    episode_title: "The Rooster",
+                    aired: '2023-07-26'
+                }],
+            },
+        },
     }
-}
-console.log(Hulu.movies);
+console.log(hulu.movies);
+console.log(hulu.shows);
+console.log(hulu.seasons["season two"][2]);
