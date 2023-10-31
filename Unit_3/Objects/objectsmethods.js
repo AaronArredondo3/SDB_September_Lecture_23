@@ -23,7 +23,7 @@ let theSimpsons = {
 // console.log(Object.keys(theSimpsons));
 
 const listKeys = Object.keys(theSimpsons);
-// console.log(listKeys);
+console.log(listKeys);
 
 //* Object.values() - returns an array of values
 // console.log(Object.values(theSimpsons));
