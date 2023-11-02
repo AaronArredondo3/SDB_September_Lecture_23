@@ -1,4 +1,4 @@
-let grades = {
+const grades = {
     midterm: {
         grade: 3.3,
         weight: 1
@@ -11,16 +11,23 @@ let grades = {
         grade: 3.2,
         weight: 2
     },
-}
+};
 
-function gpa(grades) {
-    let gradesToWeight = Object.keys(grades);
-    gradesSum = 0;
+function gpa(object) {
+    const gradesToWeight = Object.keys(grades);
+    totalGradesSum = 0;
     weightSum = 0;
-    gradesToWeight.forEach((item, index) => console.log('grades', item, index));
-}
 
-GradesSum = [grades] 
-gpa(grades)
+    gradesToWeight.forEach(function (key) {
+        totalGradesSum += object[key].grade * object[key].weight;
+        weightSum += object[key].weight;
+    });
+    
+    const weightedGrade = totalGradesSum / weightSum;
+    console.log(weightedGrade);
+    }
+    
+    gpa(grades);
+
 
 // console.log(grades);

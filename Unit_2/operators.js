@@ -75,7 +75,7 @@ console.log( 1 <= 3 ); // true
 
 // Addition Operator
 let r = 4;
-r += 1;  // r = r + 1 answer: 5
+r += 1;  // r = 4 + 1 answer: 5
 console.log(r); // 5
 
 // Subtraction Operator
