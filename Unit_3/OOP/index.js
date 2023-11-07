@@ -156,3 +156,4 @@ let b = new B(); // creating a new object
 // let pete = new Bird ('Pete', 'red', 'true');
 // console.log(pete);
 // console.log(pete.fly());
+

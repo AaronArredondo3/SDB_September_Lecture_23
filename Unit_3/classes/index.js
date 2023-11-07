@@ -101,7 +101,7 @@ dryGoods.addToInventory(itemTwo); // .addToInventory is an array method but its 
 /* 
     1. Established name of the method. 
     2. This methods requires a parameter. (not all methods will need this)
-    3. "this" keyword references the specific object (dyrGoods).
+    3. "this" keyword references the specific object (dryGoods).
     4. Using an array method to add the "item object" to the items array.
     5. Creating new objects (Dept / Item)
     6. Invoking the method available to dryGoods object.
