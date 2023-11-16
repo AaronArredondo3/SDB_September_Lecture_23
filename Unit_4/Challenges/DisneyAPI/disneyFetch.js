@@ -19,8 +19,8 @@
                     * hint: use the random number to target an object within the array provided.
                 - The name of a single character
                 - The imageURL of the character that is provided.
-        - CATCH any error that is returned.
-    - Invoke your function and pass with both variables as arguments.
+        - CATCH any error that is returned. - DONE
+    - Invoke your function and pass with both variables as arguments.- DONE
     
     All results will be displayed in the console of the browser.
 
@@ -34,20 +34,21 @@
     https://disneyapi.dev/
     */
 
-//! Global Variables
+
 const myUrl = 'https://api.disneyapi.dev/character';
 const randomNumber = Math.floor(Math.random() * 51);
-console.log(randomNumber);
+// console.log(randomNumber);
 
 async function INFO(url, randomNumber) {
     try {
 
-        let response = await fetch(url);
-        let data = await response.json();
+        const response = await fetch(url);
+        const data = await response.json();
+        // let newNumber = randomNumber*2
 
         console.log(data);
-        console.log(data[randomNumber].name);
-        console.log(data[randomNumber].imageURL);
+        console.log(randomNumber[data[0]].name);
+        // console.log(data[randomNumber].imageURL);
 
     }
     catch(error) {
