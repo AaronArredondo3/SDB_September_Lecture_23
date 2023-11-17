@@ -15,7 +15,7 @@
         - TRY and to fetch the url - DONE
             - JSON-ify the data returned- DONE
             - console.log 3 different positions:
-                - The overall promise returned 
+                - The overall promise returned -DONE
                     * hint: use the random number to target an object within the array provided.
                 - The name of a single character
                 - The imageURL of the character that is provided.
@@ -34,30 +34,33 @@
     https://disneyapi.dev/
     */
 
-
-const myUrl = 'https://api.disneyapi.dev/character';
+//! Global Variables
+const baseURL = 'https://api.disneyapi.dev/character';
 const randomNumber = Math.floor(Math.random() * 51);
-// console.log(randomNumber);
+console.log(randomNumber);
 
-async function INFO(url, randomNumber) {
+const Info = async(baseURL, randomNumber) => {
+
     try {
-
-        const response = await fetch(url);
-        const data = await response.json();
-        // let newNumber = randomNumber*2
-
+        let res = await fetch(baseURL);
+        let results = await res.json();
+        let data = results.data;
+        
         console.log(data);
-        console.log(randomNumber[data[0]].name);
-        // console.log(data[randomNumber].imageURL);
 
-    }
-    catch(error) {
+        // let obj = {
+        //     randomNumber: data.randomNumber,
+        //     name: data.name,
+        //     img: data.image,
+        // }
+        // console.log(obj);
 
-        console.error(error);
+    } catch (err) {
+        console.error(err);
     }
+
 }
-
-INFO(myUrl, randomNumber)
+    Info(baseURL, randomNumber)
 
 
 
@@ -80,7 +83,7 @@ INFO(myUrl, randomNumber)
             
         - create a function called "displayChar" that calls upon the info() function within disneyFetch.js. 
             - This will fire off when the user clicks the Character button.
-            * be sure to comment out unecessary code such as console logs and the invocation of info() within that file.
+            * be sure to comment out unnecessary code such as console logs and the invocation of info() within that file.
             * you will need to modify that function to return information rather than just console log it.
             * remember that it returns a promise.
         - Within the function
