@@ -39,14 +39,17 @@ const baseURL = 'https://api.disneyapi.dev/character';
 const randomNumber = Math.floor(Math.random() * 51);
 console.log(randomNumber);
 
+//* Async Function
 const Info = async(baseURL, randomNumber) => {
-
+    
+//* try and catch
     try {
         let res = await fetch(baseURL);
         let results = await res.json();
         let data = results.data;
         
         console.log(data);
+        console.log(data.randomNumber)
 
         // let obj = {
         //     randomNumber: data.randomNumber,
