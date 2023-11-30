@@ -22,3 +22,37 @@ most common methods used:
 - Read: GET
 - Update: PUT / PATCH
 - Delete: DELETE 
+
+## Postman
+- Set Methods
+    - GET | POST | PUT | DELETE
+    depending on route
+    - Body
+        - Raw
+        - JSON
+        - Make a JSON object
+
+        ### Preparing our server to handle JSON objects
+        In our `app.js` we need to have this line of code in our **middleware**:
+        ```js
+        app.use(express.json());
+        ```
+        - Provides us access to JSON files throughout the routes. 
+
+## MVC
+- Stands for Model View Controller
+- Architecture pattern that helps our Separation of Concerns
+- View:
+    - Browser, Postman, etc.
+        - Application that interface with the server
+- Controller:
+    - Part of the server application which handles logic.
+- Model:
+    - Database schematic
+
+## Middleware
+- A function that accesses the request and response
+- Has call stack
+    - request
+    - response
+    - next

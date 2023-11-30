@@ -62,3 +62,5 @@ function displayTable() {
         table.appendChild(tr);
     })
 }
+
+

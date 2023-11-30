@@ -20,9 +20,28 @@ router.get('/hello-world', (req,res) => {
 
 */
 
-                        // Needs both the req and res!
+//* THIS is the building frame part! 
+                    //! Needs both the req and res to work!
 router.post('/greeting', (req, res) => {
     // res.send('Good Afternoon!');
     res.status(200).send('Good Afternoon!')
 })
+
+router.post('/json', (req,res) => {
+    console.log(req.body);
+
+    const {name} = req.body; // destructing very important 
+
+    res.status(200).send(`Hello, ${name}`);
+});
+
+router.get('*', (req, res) => {
+    /* 
+        /"*": accounts for a "wild card" or anything that hasn't been defined.
+        - Provide a clean response back to the user.
+    */
+
+    res.status(404).send(`<img src="https://http.cat/404" alt="status code 404"/>`)
+})
+
 module.exports = router;
