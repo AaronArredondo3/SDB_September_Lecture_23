@@ -87,7 +87,7 @@ router.get('/query/', (req,res) => {
                 }
             })
         } else{
-            throw new Error("Need to supply First and Last Names");
+            throw new Error("Need to supply First and Last Names")
         }
 
     } catch (err) {

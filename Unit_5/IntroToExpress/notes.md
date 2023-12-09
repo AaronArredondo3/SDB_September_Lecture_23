@@ -1,10 +1,10 @@
 # Getting Started
 - Create a `package.json`
-    -In the terminal: `npm init -y`|| `nmp init`
+    -In the terminal: `npm init -y`|| `npm init`
         - initalized our project.
     - An index of the project.
         - denote required dependencies to run the project.
-- Instal our dependencies
+- Install our dependencies
     -express: `npm i express`
 - Create a `.gitignore` file
     -`/node_modules` within .gitignore.

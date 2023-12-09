@@ -1,8 +1,8 @@
 ## Challenge
 - Create an `express application` called **Express Challenge** //*DONE
-  - The entry point file will be `index` (not `app`).- DONE
-  - Create a `gitignore` file and apply the necessary file or folders within it.- DONE
-- Set this application to accept `JSON`.
+  - The entry point file will be `index` (not `app`).- *DONE
+  - Create a `gitignore` file and apply the necessary file or folders within it.- *DONE
+- Set this application to accept `JSON`. - *DONE
 - This will run on a port of your choosing.
 - Create a middleware function
   - This should be within it's own file and imported.
