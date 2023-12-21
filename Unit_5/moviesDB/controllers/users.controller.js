@@ -57,7 +57,7 @@ router.post('/login', async(req,res) =>{
         //* This a MongoDB method that accepts a query as an argument. Returns an instance of a document of a document that matches.
 
         // console.log(user);
-        if(!user) throw new Error('Email or Password does not match');
+        if(!user) throw new Error('Email or Password does not match!');
 
         //3. If email exists, consider if the password matches.
         const passwordMatch = await bcrypt.compare(password, user.password);
@@ -66,7 +66,7 @@ router.post('/login', async(req,res) =>{
         if(!passwordMatch) throw new Error('Email or Password does not match');
         
         //4. After verified, provide a jwt
-        const token = jwt.sign({id: user._id}. SECRET, {expiresIn: 60 * 60 * 24})
+        const token = jwt.sign({id: user._id}, SECRET, {expiresIn: 60 * 60 * 24})
 
         //5. Response status returned
         res.status(200).json({

@@ -1,11 +1,14 @@
 const router = require ('express').Router();
 const Movie = require('../models/Movie.model');
 const { errorResponse } = require('../utils');
+const validationSession = require('../middleware/validate-session')
 
 // POST
-router.post('/', async(req,res) => {
+router.post('/', validationSession, async(req,res) => {
     try {
         
+        // console.log(req);
+
         //1. Pull data from client (body)
         const { 
             title, genre, rating, length, releaseYear
@@ -13,7 +16,8 @@ router.post('/', async(req,res) => {
 
         //2. Create a new object using the model
         const movie = new Movie({
-            title, genre, rating, length, releaseYear
+            title, genre, rating, length, releaseYear,
+            owner_id: req.user._id
         });
 
         //3. Save the object to the DB
@@ -30,7 +34,7 @@ router.post('/', async(req,res) => {
     }
 });
 
-// GET All
+//* GET All
 /* 
 !   Challenge
 - No special endpoint necessary
@@ -44,15 +48,18 @@ Docs: https://www.mongodb.com/docs/manual/reference/method/db.collection.find/
 Hint: parameters within method are optional
 */
 
-router.get('/', async (req, res) =>{
+router.get('/', validationSession, async (req, res) =>{
     try {
 
         const allMovies = await Movie.find();
-
+        
+        // console.log(req.user);
         if(allMovies.length === 0) throw new error
+
+        allMovies.length > 0?
         res.status(200).json({
             result: allMovies,
-        })
+        }) :
         res.status(404).json({
             result: 'No movies found'
         })
@@ -62,15 +69,12 @@ router.get('/', async (req, res) =>{
     }
 });
 
-//TODO GET One
-router.get('/find-one/:id', async (req, res) => {
+//* GET One
+router.get('/find-one/:id', validationSession, async (req, res) => {
     try {
 
         const{ id } = req.params;
-        // console.log(req)
-        // console.log(req.params)
-
-        const getMovie = await Movie.findOne({_id: id});
+        const getMovie = await Movie.findOne({_id: id, owner_id: req.user._id});
 
         if(!getMovie) throw new Error ('no movie found');
 
@@ -94,8 +98,8 @@ router.get('/find-one/:id', async (req, res) => {
     }
 });
 
-//T Get All by Genre
-router.get('/genre/:genre', async (req, res) => {
+//* Get All by Genre
+router.get('/genre/:genre', validationSession, async (req, res) => {
     try {
         /* 
 !   Challenge
@@ -128,7 +132,7 @@ router.get('/genre/:genre', async (req, res) => {
             }
         }
 
-        const getMovies = await Movie.find({genre: buildWord});
+        const getMovies = await Movie.find({genre: buildWord, owner_id: req.user._id});
 
         getMovies.length > 0 ?
         res.status(200).json({
@@ -144,19 +148,26 @@ router.get('/genre/:genre', async (req, res) => {
     }
 });
 
-//TODO Patch/Put One
-router.patch('/:id', async(req,res) => {
+//* Patch/Put One
+router.patch('/:id', validationSession, async(req,res) => {
     try {
 
         //1. Pull value from parameter
-        const { id } = req.params;
+        // const { id } = req.params;
+        const filter = {
+            _id: req.params.id,
+            owner_id: req.user._id
+        }
+
         //2. Pull data from the body
         const info = req.body;
 
         //3. Use method to locate a document based off the ID and pass in new information.
         //* .findOneAndUpdate(query, document, options)
         const returnOption = {new: true}; // option - returns the updated document.
-        const updated = await Movie.findOneAndUpdate({_id: id}, info, returnOption);
+
+        // const updated = await Movie.findOneAndUpdate({_id: id}, info, returnOption);
+        const updated = await Movie.findOneAndUpdate(filter, info, returnOption);
 
         //4. Respond to client
         res.status(200).json({
@@ -168,15 +179,15 @@ router.patch('/:id', async(req,res) => {
     }
 });
 
-// DELETE One
-router.delete('/:id', async(req,res) => {
+//* DELETE One
+router.delete('/:id', validationSession, async(req,res) => {
     try {
         //1. Capture data (ID)
         const { id } = req.params;
 
         //2. use a delete method to locate and remove
-        const deleteMovie = await Movie.deleteOne({_id: id});
-        console.log(deleteMovie);
+        const deleteMovie = await Movie.deleteOne({_id: id, owner_id: req.user._id});
+        // console.log(deleteMovie);
 
         //3. respond to client
         deleteMovie.deletedCount ?
