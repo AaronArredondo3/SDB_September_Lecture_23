@@ -70,6 +70,17 @@ router.get('/', validationSession, async (req, res) =>{
 });
 
 //* GET One
+/* 
+!   Challenge
+- By ID
+- Response should consider
+    - If found
+    - If no document found
+- Test the route within Postman
+
+Hint: Consider login within user.controller.js
+Docs: https://www.mongodb.com/docs/manual/reference/method/db.collection.findOne/
+*/
 router.get('/find-one/:id', validationSession, async (req, res) => {
     try {
 
@@ -82,17 +93,6 @@ router.get('/find-one/:id', validationSession, async (req, res) => {
             results: getMovie
         })
 
-        /* 
-!   Challenge
-        - By ID
-        - Response should consider
-            - If found
-            - If no document found
-        - Test the route within Postman
-        
-        Hint: Consider login within user.controller.js
-        Docs: https://www.mongodb.com/docs/manual/reference/method/db.collection.findOne/
-*/
     } catch (err) {
         errorResponse(res, err)
     }
