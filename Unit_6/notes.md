@@ -37,3 +37,5 @@ Create an unordered list with the last 3 places you have visited. (Target, Alask
 Export the component.
 Import the component into App.jsx and mount it between the Header and Footer components.
 */
+ short cut for boilerplate is 
+ rfce

@@ -17,7 +17,7 @@ function AboutMe() {
 
     return(
         <p style={styles.p}>
-            I grew up in {city}, {state}
+            {city}, {state}
             <ul style={styles.ul}>
                 <li>Walmart,</li>
                 <li>Home,</li>
