@@ -25,17 +25,55 @@
   - `index.js`: JavaScript being rendered to `index.html`.
   - `App.js`: Main point where components are mounted. This is being rendered within `index.js`.
 
-  ## About Me Challenge
-js
+ ## short cut for boilerplate is 
+ ## rfce
+
+ # State
+- Helps modify data based on a condition
+  - ex: 
+    - offline/online status
+    - session token storage
+- Utilizes types of hooks
+- Requires to be imported
+
+`import { useState } from 'react'`
+
+## `useState()`
+- Structure:
+  - `keyword [ variable, function ] = hook(initial value);`
+  - The Process:
+
+```js
+function useState(startingData) {
+  function updateState(newData) {
+    startingData = newData;
+  }
+  return [startingData, updateState]
+}
+```
+
+# Challenge Counter
+```javascriptreact
 /* 
-  
-Create a new folder called about me within the components folder.
-Create a new file inside the folder called AboutMe.jsx.
-Create a <p> tag that notes where you grew up. 
-Use variables for city and state.
-Create an unordered list with the last 3 places you have visited. (Target, Alaska, the Kitchen, etc.)
-Export the component.
-Import the component into App.jsx and mount it between the Header and Footer components.
-*/
- short cut for boilerplate is 
- rfce
+  ! Challenge:
+    - Build out a Counter Component which will have two buttons (+), (-) and a span element that will take its value from a count state variable.
+      - This should be within it's own folder.
+    - Create two functions that will work as onClick event listeners.
+      - One function will increment the current state.
+      - One function will decrement the current state.
+      
+    Hard Mode:
+      - Leave the count inside App.jsx
+  */
+
+  ## Re-rendering
+- We can use a callback function to help with rendering processes.
+- useState can take raw value but also a callback function.
+
+ex: 
+```jsx
+const [ count, setCount ] = useState(0); // raw value
+const [ count, setCount ] = useState(() => 0); // CB Function
+```
+- Callback function renders initial value ONCE.
+```
