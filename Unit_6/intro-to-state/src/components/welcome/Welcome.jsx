@@ -2,7 +2,7 @@ import React from 'react'
 
 function Welcome(props) {
 
-console.log(props)
+// console.log(props)
 
     function removeName() {
         const updatedNames = props.names.filter(name => name !== props.name);

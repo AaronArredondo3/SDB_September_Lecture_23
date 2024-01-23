@@ -9,7 +9,7 @@
 ## Rules of JSX
   1. **Must** Export for it to be used.
   2. **Must** be imported to be used.
-  3. **Must** be mounted to be used.
+  3. **Must** be mounted to be used. mount in the "App.jsx" file
   4. **Must** only return **ONE** JSX Element.
 
   # Creating a React App
@@ -24,8 +24,10 @@
 - src
   - `index.js`: JavaScript being rendered to `index.html`.
   - `App.js`: Main point where components are mounted. This is being rendered within `index.js`.
+  - Change 'App.js' to "App.jsx"
+  - Components must be mounted inside the "App.jsx" to be used.
 
- ## short cut for boilerplate is 
+ ## short cut for boilerplate within the components is
  ## rfce
 
  # State
