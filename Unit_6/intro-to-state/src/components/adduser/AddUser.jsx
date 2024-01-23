@@ -14,11 +14,13 @@ function AddUser({names, setNames}) {
         e.preventDefault()
         // console.log('submitted')
 
-        let addUser = [...names]
-        addUser.push(text);
+        if(text.length > 0) {
+            let addUser = [...names]
+            addUser.push(text);
 
-        setNames(addUser);
-        setText('')
+            setNames(addUser);
+            setText('')
+        }
     }
 
     return (
