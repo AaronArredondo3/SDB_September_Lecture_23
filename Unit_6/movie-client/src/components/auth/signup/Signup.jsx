@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import {Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import { useNavigate } from 'react-router-dom';
+import FullButton from '../../buttons/FullButton';
 
 function Signup({updateToken}) {
 
@@ -102,7 +103,9 @@ function Signup({updateToken}) {
                         autoComplete={'off'}
                     />
                 </FormGroup>
-                <Button type='submit'>Signup</Button>
+                <FullButton>
+                    <Button type='submit'>Signup</Button>
+                </FullButton>
             </Form>
         </>
     )

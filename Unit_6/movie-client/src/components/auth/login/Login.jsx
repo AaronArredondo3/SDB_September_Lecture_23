@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
+import FullButton from '../../buttons/FullButton';
 
 function Login({updateToken}) {
 
@@ -69,7 +70,9 @@ const handleSubmit= async (e) => {
                         autoComplete={'off'}
                         />
                 </FormGroup>
-                <Button type = 'submit'>Login</Button>
+                <FullButton>
+                    <Button type = 'submit'>Login</Button>
+                </FullButton>
             </Form>
         </div>
     )
