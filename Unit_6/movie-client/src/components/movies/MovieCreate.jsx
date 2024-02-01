@@ -54,10 +54,11 @@ console.log(props)
             
             const response = await fetch(url, requestOptions);
             const data = await response.json();
+            props.fetchMovies()
             
-            console.log(data);
             
-            if(data.message === 'Success!! Movie added!') {
+            if(data.message === 'test added to collection') {
+                console.log(data);
             }else {
                 alert(data.message)
             }
