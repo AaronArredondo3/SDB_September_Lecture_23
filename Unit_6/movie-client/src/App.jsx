@@ -3,12 +3,14 @@ import './App.css';
 import Auth from './components/auth/Auth';
 import { useEffect, useState } from 'react';
 import MovieIndex from './components/movies/MovieIndex';
+import MovieEdit from './components/movies/MovieEdit';
+import Logout from './components/auth/logout/Logout';
 
 function App() {
 
   const [ sessionToken, setSessionToken ] = useState('');
 
-  console.log('App:', sessionToken);
+  // console.log('App:', sessionToken);
 
   const updateToken = newToken => { // this will update the token in the browser
     localStorage.setItem('token', newToken)
@@ -47,6 +49,10 @@ function App() {
 
   return (
     <div className="App">
+      {
+        sessionToken !=='' ? 
+        <Logout setToken={setSessionToken} /> : null // this is a javascript logic that doesn't display the signout button at our login page
+      }
       <Routes>
         <Route 
           path='/'
@@ -55,6 +61,10 @@ function App() {
         <Route 
           path='/movie'
           element={<MovieIndex token={sessionToken} />} // this is the routes so it can move into the next page.
+        />
+        <Route 
+          path='/movie/update/:id'
+          element={<MovieEdit token={sessionToken} />} 
         />
       </Routes>
     </div>
