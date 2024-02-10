@@ -56,7 +56,6 @@ console.log(props)
             const data = await response.json();
             props.fetchMovies()
             
-            
             if(data.message === 'test added to collection') {
                 console.log(data);
             }else {
